@@ -1,0 +1,7 @@
+{
+  "username": "A",
+  "password": "hashed_password_example",
+  "gitHub_profile": "https://github.com/example_user",
+  "projects_joined": ["p1", "p2"],
+  "projects_created": ["p3", "p4"]
+}
