@@ -99,6 +99,8 @@ body{
 .ficard2{
   /* width: min-content; */
   margin: auto;
+  color: white;
+  width: 100%;
     /* min-width: 1100px; */
     backdrop-filter: blur(10px);
     background-color: rgb(255, 255, 255,0.1);
@@ -238,7 +240,7 @@ p{
   flex-direction: row;
 }
 .spacearound{
-  width: 230px;
+  width: 350px;
 }
 
 
@@ -1107,5 +1109,8 @@ a.article:hover {
     }
     #sidebarCollapse span {
         display: none;
+    }
+    .spacearound{
+        width: 0px;
     }
 }
