@@ -1,11 +1,8 @@
 import bcrypt from 'bcryptjs';
-
-import db from '../../loaders/db';
 import supabase from '../../loaders/db';
 import generateToken from '../../middlewares/jwt';
 import { ERRORS, ROUNDS } from '../../shared/constants';
-import { Database } from '../../types/supabase';
-import { type AuthSchema, UserAuthSchema,  CreateUserSchema } from './auth.schema';
+import type { AuthSchema, CreateUserSchema } from './auth.schema';
 
 export async function handleSignUp({
   username,
@@ -36,7 +33,7 @@ export async function handleSignUp({
   const hash = await bcrypt.hash(password, ROUNDS);
 
   //Insert new user
-  const { error: insertError } = await db.from('users').insert({
+  const { error: insertError } = await supabase.from('users').insert({
     username: username,
     password: hash,
     github_profile: github_profile,
@@ -73,7 +70,7 @@ export async function handleLogin({
       message: ERRORS.INTERNAL_SERVER_ERROR.message.error,
     };
   }
-  
+
   const res = bcrypt.compare(pswd, password);
 
   if (!res) {
@@ -82,6 +79,6 @@ export async function handleLogin({
       message: ERRORS.UNAUTHORIZED.message.error,
     };
   }
-  
+
   return generateToken(username);
 }

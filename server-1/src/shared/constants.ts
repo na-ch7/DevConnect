@@ -8,6 +8,8 @@ export const MESSAGES = {
   SIGNED_IN: 'User Signed Up Successfully',
   LOGGED_IN: 'User Logged in Successfully',
   JOIN_TEAM: 'Successfully Applied for joining team',
+  PROJECT_CREATED: 'Project Created SUccessfuly',
+  PROJECT_FETCHED: 'Fetched Project Details Successfuly',
 };
 
 export const ERRORS = {

@@ -33,7 +33,6 @@
     "express": "^4.19.2",
     "helmet": "^7.1.0",
     "jsonwebtoken": "^9.0.2",
-    "mongodb": "^6.8.0",
     "nanoid": "^5.0.7",
     "supabase": "^1.187.3",
     "winston": "^3.13.1",
