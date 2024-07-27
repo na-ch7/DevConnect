@@ -1,11 +1,11 @@
 import React from "react";
 
-function postproject(){
+function PostProject(){
     return (
-        <div>
+        <div >
             <p>Hello this is post project page!!</p>
         </div>
     )
 }
 
-export default postproject;
+export default PostProject;
