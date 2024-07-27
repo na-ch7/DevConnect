@@ -3,6 +3,10 @@
     "target": "es2016",
     "module": "commonjs",
     "outDir": "./build",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,

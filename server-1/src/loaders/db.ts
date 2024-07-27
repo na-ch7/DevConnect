@@ -1,13 +1,10 @@
-import { type SupabaseClient, createClient } from '@supabase/supabase-js';
+import type { Database } from '@/types/supabase';
+import { createClient } from '@supabase/supabase-js';
 import config from '../config';
 
-let db: SupabaseClient | undefined;
+const supabase = createClient<Database>(
+  config.SUPABASE_URL as string,
+  config.SUPABASE_KEY as string,
+);
 
-export async function initializeClient(): Promise<SupabaseClient> {
-  if (!db) {
-    db = createClient(config.SUPABASE_URL, config.SUPABASE_KEY);
-  }
-  return db;
-}
-
-export default initializeClient();
+export default supabase;

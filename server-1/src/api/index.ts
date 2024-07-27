@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import testController from './test/test.controller';
 import authController from './auth/auth.controller';
+import testController from './test/test.controller';
 
 export default (): Router => {
   const app = Router();
