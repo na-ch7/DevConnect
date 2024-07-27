@@ -7,13 +7,14 @@ export const ROUNDS = 10;
 export const MESSAGES = {
   SIGNED_IN: 'User Signed Up Successfully',
   LOGGED_IN: 'User Logged in Successfully',
+  JOIN_TEAM: 'Successfully Applied for joining team',
 };
 
 export const ERRORS = {
   INTERNAL_SERVER_ERROR: {
     statusCode: 500,
     message: {
-      error: 'Internal Server Error',
+      error: 'Internal Server Error wowww',
       error_description: 'Something went wrong',
     },
   },

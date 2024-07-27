@@ -1,50 +1,47 @@
-import bcrypt from "bcryptjs";
-import { initializeClient } from "../../../../server/src/loaders/db";
-import db from "../../../../server/src/loaders/db";
-import { ERRORS, ROUNDS } from "../../../../server/src/shared/constants";
-import { AuthSchema, UserAuthSchema } from "./auth.schema";
-import generateToken from "../../../../server/src/middleware/jwt";
+import bcrypt from 'bcryptjs';
+
+import db from '../../loaders/db';
+import supabase from '../../loaders/db';
+import generateToken from '../../middlewares/jwt';
+import { ERRORS, ROUNDS } from '../../shared/constants';
+import { Database } from '../../types/supabase';
+import { type AuthSchema, UserAuthSchema,  CreateUserSchema } from './auth.schema';
 
 export async function handleSignUp({
   username,
   password,
   github_profile,
-}: AuthSchema) {
-  const db = await initializeClient();
-
+}: CreateUserSchema) {
   // Check if the user already exists
-  const { data, error } = await db
-    .from("users")
-    .select("*")
-    .eq("username", username);
+  const { data, error } = await supabase
+    .from('users')
+    .select('*')
+    .eq('username', username);
 
-    console.log("hi");
-    console.log(data);
-    console.log(error);
+  if (error) {
+    throw {
+      statusCode: ERRORS.INTERNAL_SERVER_ERROR.statusCode,
+      message: ERRORS.INTERNAL_SERVER_ERROR.message.error,
+    };
+  }
 
-    if (error) {
-        console.error("Error fetching user:", error);
-        throw {
-          statusCode: ERRORS.INTERNAL_SERVER_ERROR.statusCode,
-          message: ERRORS.INTERNAL_SERVER_ERROR.message.error,
-        };
-      }
-      if (data.length > 0) {
-        throw {
-          statusCode: ERRORS.USER_ALREADY_EXISTS.statusCode,
-          message: ERRORS.USER_ALREADY_EXISTS.message.error,
-        };
-      }
+  if (data.length > 0) {
+    throw {
+      statusCode: ERRORS.USER_ALREADY_EXISTS.statusCode,
+      message: ERRORS.USER_ALREADY_EXISTS.message.error,
+    };
+  }
+
   //hash the password
   const hash = await bcrypt.hash(password, ROUNDS);
 
   //Insert new user
-  const { error: insertError } = await db.from("users").insert({
+  const { error: insertError } = await db.from('users').insert({
     username: username,
     password: hash,
     github_profile: github_profile,
   });
-  
+
   if (insertError) {
     throw {
       statusCode: ERRORS.INTERNAL_SERVER_ERROR.statusCode,
@@ -57,17 +54,11 @@ export async function handleLogin({
   username,
   password,
 }: AuthSchema): Promise<string> {
-  const db = await initializeClient();
-
-  const { data, error } = await db
-    .from("users")
-    .select("*")
-    .eq("username", username)
+  const { data, error } = await supabase
+    .from('users')
+    .select('*')
+    .eq('username', username)
     .single();
-
-    console.log("hi");
-    console.log(data);
-    console.log(error);
 
   if (!data) {
     throw {
@@ -75,7 +66,15 @@ export async function handleLogin({
       message: ERRORS.USER_NOT_FOUND.message.error,
     };
   }
-  const res = await bcrypt.compare(password, data.password);
+  const pswd = data.password;
+  if (typeof pswd !== 'string') {
+    throw {
+      statusCode: ERRORS.INTERNAL_SERVER_ERROR.statusCode,
+      message: ERRORS.INTERNAL_SERVER_ERROR.message.error,
+    };
+  }
+  
+  const res = bcrypt.compare(pswd, password);
 
   if (!res) {
     throw {
@@ -83,5 +82,6 @@ export async function handleLogin({
       message: ERRORS.UNAUTHORIZED.message.error,
     };
   }
+  
   return generateToken(username);
 }
