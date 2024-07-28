@@ -1,10 +1,13 @@
 <h1 align="center" id="title">DevConnect</h1>
 
 
-![Screenshot 2024-07-28 082005](https://github.com/user-attachments/assets/3c1dfd78-cd40-4ecb-bb54-30b6702c0a9c)
+
+![Screenshot 2024-07-28 083255](https://github.com/user-attachments/assets/60a56d5d-733d-4496-8825-e0bf1c8dde8e)
 
 <p id="description">Welcome to DevConnect, a platform for coders to come together, share ideas, join teams and collaborate on innovative projects. Whether you're a seasoned developer or just getting started in the coding world, our website is the perfect place to find like-minded individuals who are passionate about bringing creative ideas to life.
 </p>
+
+
 
 
 ## DevConnect Setup
