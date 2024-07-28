@@ -9,6 +9,51 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      projects: {
+        Row: {
+          created_at: string;
+          description: string | null;
+          github_repo: string | null;
+          id: number;
+          isOpen: boolean | null;
+          likes: number | null;
+          max_members: number | null;
+          members: string[] | null;
+          pending_members: Json[] | null;
+          project_name: string;
+          project_tags: string | null;
+          projectCode: string | null;
+        };
+        Insert: {
+          created_at?: string;
+          description?: string | null;
+          github_repo?: string | null;
+          id?: number;
+          isOpen?: boolean | null;
+          likes?: number | null;
+          max_members?: number | null;
+          members?: string[] | null;
+          pending_members?: Json[] | null;
+          project_name: string;
+          project_tags?: string | null;
+          projectCode?: string | null;
+        };
+        Update: {
+          created_at?: string;
+          description?: string | null;
+          github_repo?: string | null;
+          id?: number;
+          isOpen?: boolean | null;
+          likes?: number | null;
+          max_members?: number | null;
+          members?: string[] | null;
+          pending_members?: Json[] | null;
+          project_name?: string;
+          project_tags?: string | null;
+          projectCode?: string | null;
+        };
+        Relationships: [];
+      };
       users: {
         Row: {
           created_at: string;
