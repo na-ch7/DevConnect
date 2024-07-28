@@ -16,7 +16,7 @@ export const ERRORS = {
   INTERNAL_SERVER_ERROR: {
     statusCode: 500,
     message: {
-      error: 'Internal Server Error wowww',
+      error: 'Internal Server Error',
       error_description: 'Something went wrong',
     },
   },
@@ -27,11 +27,25 @@ export const ERRORS = {
       error_description: "User doesn't Exist",
     },
   },
+  PROJECT_NOT_FOUND: {
+    statusCode: 404,
+    message: {
+      error: 'Project not found',
+      error_description: "Project doesn't Exist",
+    },
+  },
   USER_ALREADY_EXISTS: {
     statusCode: 409,
     message: {
       error: 'User Already Exists',
       error_description: 'User Already Exists',
+    },
+  },
+  USER_ALREADY_MEMBER: {
+    statusCode: 409,
+    message: {
+      error: 'User is already a member',
+      error_description: 'User is already a member',
     },
   },
   UNAUTHORIZED: {
@@ -69,4 +83,18 @@ export const ERRORS = {
       error_description: 'Invalid token',
     },
   },
-};
+  TEAM_FULL: {
+    statusCode: 400,
+    message: {
+      error: "Team is full.",
+      error_description: 'Team is full'
+    },
+},
+TEAM_CLOSED: {
+  statusCode: 400,
+  message: {
+    error: "Team is closed",
+    error_description: 'Team is closed'
+  },
+},
+}

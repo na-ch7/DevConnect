@@ -40,9 +40,9 @@ export const joinTeam = async (
   res: Response,
   next: NextFunction,
 ) => {
-  const { projectCode } = req.body;
+  const { projectCode, username } = req.body;
   try {
-    await handleJoinTeam(projectCode);
+    await handleJoinTeam(projectCode, username);
     res.status(200).json({
       success: true,
       message: MESSAGES.JOIN_TEAM,
@@ -58,10 +58,11 @@ export const getAllProjects = async (
   next: NextFunction,
 ) => {
   try {
-    await handleGetAllProjects();
+    const data = await handleGetAllProjects();
     res.status(200).json({
       success: true,
       message: MESSAGES.PROJECT_FETCHED,
+      data
     });
   } catch (error) {
     next(error);
@@ -73,11 +74,13 @@ export const getProjectById = async (
   res: Response,
   next: NextFunction,
 ) => {
+  const { nanoid } = req.params;
   try {
-    await handleGetProjectByNanoid();
+    const data = await handleGetProjectByNanoid(nanoid);
     res.status(200).json({
       success: true,
       message: MESSAGES.PROJECT_FETCHED,
+      data
     });
   } catch (error) {
     next(error);

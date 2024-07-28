@@ -32,5 +32,5 @@ export const CreateUserSchema = UserSchema.pick({
 });
 
 export type AuthSchema = z.infer<typeof UserAuthorizationSchema>;
-export type UserAuthSchema = z.infer<typeof UserSchema>;
+export type UserSchema = z.infer<typeof UserSchema>;
 export type CreateUserSchema = z.infer<typeof CreateUserSchema>;
