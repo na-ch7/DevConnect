@@ -30,7 +30,9 @@ const Navbar: React.FC = () => {
 
         <div className='mt-auto mb-4'>
             <Link  to='/login' className="flex items-center  space-x-2 text-white hover pt-10 ml-6  rounded font-monopoly text-lg">
-              <img src={pfpImage} alt="ProfilePic" width="40" height="40" className="rounded-full" />
+              <img src={pfpImage} alt="ProfilePic" width="30" height="30" className="rounded-full" />
+              <span/>
+              <span/>
               <strong>Login</strong>
             </Link>
             </div>
