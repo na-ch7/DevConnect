@@ -86,15 +86,15 @@ export const ERRORS = {
   TEAM_FULL: {
     statusCode: 400,
     message: {
-      error: "Team is full.",
-      error_description: 'Team is full'
+      error: 'Team is full.',
+      error_description: 'Team is full',
     },
-},
-TEAM_CLOSED: {
-  statusCode: 400,
-  message: {
-    error: "Team is closed",
-    error_description: 'Team is closed'
   },
-},
-}
+  TEAM_CLOSED: {
+    statusCode: 400,
+    message: {
+      error: 'Team is closed',
+      error_description: 'Team is closed',
+    },
+  },
+};

@@ -16,8 +16,8 @@ export const ProjectSchema = z.object({
     .optional(), // Max members is optional
   members: z.array(z.string()),
   pending_members: z.array(z.string()).optional(), // Pending members are optional
- isOpen: z.boolean(), // Boolean to indicate if the project is open
- likes: z
+  isOpen: z.boolean(), // Boolean to indicate if the project is open
+  likes: z
     .number()
     .int()
     .nonnegative({ message: 'Likes must be a non-negative integer' }), // Number of likes must be non-negative

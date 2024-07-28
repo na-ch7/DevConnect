@@ -62,7 +62,7 @@ export const getAllProjects = async (
     res.status(200).json({
       success: true,
       message: MESSAGES.PROJECT_FETCHED,
-      data
+      data,
     });
   } catch (error) {
     next(error);
@@ -80,7 +80,7 @@ export const getProjectById = async (
     res.status(200).json({
       success: true,
       message: MESSAGES.PROJECT_FETCHED,
-      data
+      data,
     });
   } catch (error) {
     next(error);
