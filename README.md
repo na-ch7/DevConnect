@@ -1,8 +1,7 @@
 <h1 align="center" id="title">DevConnect</h1>
 
 
-
-![Screenshot 2024-07-28 024943](https://github.com/user-attachments/assets/c4120921-45b0-472b-a70d-48c470debf13)
+![Screenshot 2024-07-28 082005](https://github.com/user-attachments/assets/3c1dfd78-cd40-4ecb-bb54-30b6702c0a9c)
 
 <p id="description">Welcome to DevConnect, a platform for coders to come together, share ideas, join teams and collaborate on innovative projects. Whether you're a seasoned developer or just getting started in the coding world, our website is the perfect place to find like-minded individuals who are passionate about bringing creative ideas to life.
 </p>
@@ -23,7 +22,8 @@ Make sure you have the following installed on your machine:
 
 ## Getting Started
 
-Follow these steps to get your React application up and running:
+> [!NOTE] 
+> Follow these steps to get your React application up and running:
 
 ###  Clone the Repository
 
