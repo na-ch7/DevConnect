@@ -4,6 +4,14 @@
     background-size: 180% 180%;
     animation: gradient-animation 12s ease infinite;
   }
+  .gradient-backgrounds {
+    background: rgb(150,60,101);
+    background: radial-gradient(circle, rgba(150,60,101,1) 18%, rgba(45,9,82,1) 80%);
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+  }
+  
   .Cred{
     color: white;
     font-size: 20px;
@@ -74,6 +82,8 @@ body{
 }
 .ficon{
     z-index: 5;
+    color: white;
+    text-align: center;
 }
 #dotspro{
     position: absolute;
@@ -99,6 +109,8 @@ body{
 .ficard2{
   /* width: min-content; */
   margin: auto;
+  color: white;
+  width: 100%;
     /* min-width: 1100px; */
     backdrop-filter: blur(10px);
     background-color: rgb(255, 255, 255,0.1);
@@ -110,6 +122,25 @@ body{
     padding: 2%;
     flex-basis: auto;
     
+}
+.ficard3{
+    margin: auto;
+  color: white;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+    /* min-width: 1100px; */
+    backdrop-filter: blur(20px);
+    background-color: rgba(58, 8, 75, 0.712);
+    border-radius: 25px;
+    /* position: absolute; */
+    /* left: 20%; */
+    /* top: 19%; */
+    z-index: 2;
+    padding: 2%;
+    margin-bottom: 20px;
+    flex-basis: auto;
 }
 .starters{
     display: flex;
@@ -230,6 +261,20 @@ body{
         transform: translateY(0) scale(1);
     }
 }
+.star3con{
+    /* width: 45%; */
+    animation: autoShowAnimation both;
+    animation-timeline: view(50% 10%);
+}
+@keyframes autoShowAnimation{
+    from{
+        opacity: 0;
+        transform: translateY(200px) scale(0.3);
+    }to{
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
 p{
     padding: 2%;
 }
@@ -238,8 +283,29 @@ p{
   flex-direction: row;
 }
 .spacearound{
-  width: 230px;
+  width: 350px;
 }
+.profileinput {
+    margin-bottom: 40px;
+}
+
+.profilebox {
+    padding: 5px;
+    word-wrap: break-word;
+}
+
+h3 {
+    margin: 0px;
+}
+.userpost{
+    background-color: rgba(119, 85, 118, 0.5);
+    border-radius: 20px;
+    padding: 20px;
+}
+.profile-contain{
+    padding-bottom: 300px;
+}
+
 
 
 
@@ -254,7 +320,7 @@ p{
 .button-49,
 .button-49:after {
   width: 150px;
-  left: 34%;
+  left: 39%;
   height: 56px;
   line-height: 50px;
   font-size: 20px;
@@ -999,9 +1065,10 @@ a:focus {
 
 #sidebar {
     min-width: 250px;
+    border-radius: 0px,10px,20px,0px;
     max-width: 250px;
     backdrop-filter: blur(3px);
-    background: rgb(82, 37, 205,0.4);
+    background: rgb(93, 3, 145, 0.4);
     color: #fff;
     transition: all 0.3s;
 }
@@ -1012,12 +1079,13 @@ a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #2545d3;
+    background: rgb(93, 3, 145);
+    border-radius: 25px;
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #2545d3;
+    border-bottom: 1px solid #c03af1;
 }
 
 #sidebar ul p {
@@ -1032,14 +1100,15 @@ a:focus {
 }
 
 #sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
+    color: #ffffff;
+    background: #8e00a3;
+    border-radius: 25px;
 }
 
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
-    background: #2545d3;
+    background: #8601c4;
 }
 
 a[data-toggle="collapse"] {
@@ -1107,5 +1176,8 @@ a.article:hover {
     }
     #sidebarCollapse span {
         display: none;
+    }
+    .spacearound{
+        width: 0px;
     }
 }
